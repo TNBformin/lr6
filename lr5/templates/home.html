@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  {% extends 'base.html' %}
+    {% block content %}
+        {% for post in object_list %}
+            <div class = "post-entry">
+                <h2><a href="{% url 'post_detail' post.pk %}"> {{ post.title }} </a></h2>
+                <a href="{% url 'post_edit' post.pk %}">+ Edit Blog Post</a>
+                <p><a href="{% url 'post_delete' post.pk %}">+ Delete Blog Post</a></p>
+                <p> {{ post.body }} </p>
+            </div>
+        {% endfor %}
+    {% endblock content %}
+</body>
+</html>
